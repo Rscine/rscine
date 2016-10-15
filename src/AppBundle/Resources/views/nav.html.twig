@@ -1,0 +1,74 @@
+<div ng-controller="NavCtrl">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+        <md-toolbar class="md-theme-indigo">
+            <div class="md-toolbar-tools">
+                <h1 class="md-toolbar-tools">Menu</h1>
+                <md-button class="md-icon-button" aria-label="Close" ng-click="toggleLeft()">
+                    <md-icon aria-label="User" class="material-icons step">
+                        close
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-menu-content width="3">
+            <md-menu-item>
+                <md-button ng-href="/#/">
+                    <md-icon class="material-icons step" md-menu-align-target>home</md-icon>
+                    Home
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button ng-href="/#/offers">
+                    <md-icon class="material-icons step">card_giftcard</md-icon>
+                    Offers
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-sidenav>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleLeft()" aria-label="Menu" class="md-icon-button">
+                <md-icon aria-label="Menu" class="material-icons step">
+                    menu
+                </md-icon>
+            </md-button>
+            <h2>
+                <span>Rscine</span>
+            </h2>
+            <span flex></span>
+
+            <!-- Notifications -->
+            <md-button aria-label="Open phone interactions menu" class="md-icon-button" aria-label="Profile">
+                <md-icon md-menu-origin aria-label="User" class="material-icons step">
+                    notifications
+                </md-icon>
+            </md-button>
+
+            <!-- Profil -->
+            <md-menu md-position-mode="target-right target">
+                <md-button aria-label="Open user profile menu" ng-click="openMenu($mdOpenMenu, $event)" class="md-icon-button" aria-label="Profile">
+                    <md-icon md-menu-origin aria-label="User" class="material-icons step">
+                        person
+                    </md-icon>
+                </md-button>
+
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ng-href="/#/profile">
+                            <md-icon class="material-icons step" md-menu-align-target>person</md-icon>
+                            Profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="logout()">
+                            <md-icon class="material-icons step">power_settings_new</md-icon>
+                            Log out
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+
+        </div>
+    </md-toolbar>
+</div>

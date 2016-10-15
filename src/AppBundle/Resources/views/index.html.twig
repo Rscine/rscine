@@ -1,148 +1,60 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}Rscine{% endblock %}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+{% extends 'AppBundle::base.html.twig' %}
 
-    {% block stylesheets %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-    {% stylesheets '@AppBundle/Resources/public/scss/*' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+{% block title %}Rscine{% endblock %}
 
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    {% endblock %}
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-    </head>
-    <body ng-app="rscine">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+{% stylesheets '@AppBundle/Resources/public/scss/*' filter='cssrewrite' %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
 
-    <div ng-controller="MainCtrl" ng-cloak>
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+{% endblock %}
 
-        <!-- Add your site or application content here -->
-        <div ng-controller="NavCtrl">
-            <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-                <md-toolbar class="md-theme-indigo">
-                    <div class="md-toolbar-tools">
-                        <h1 class="md-toolbar-tools">Menu</h1>
-                        <md-button class="md-icon-button" aria-label="Close" ng-click="toggleLeft()">
-                            <md-icon aria-label="User" class="material-icons step">
-                                close
-                            </md-icon>
-                        </md-button>
-                    </div>
-                </md-toolbar>
-                <md-menu-content width="3">
-                    <md-menu-item>
-                        <md-button ng-href="/#/">
-                            <md-icon class="material-icons step" md-menu-align-target>home</md-icon>
-                            Home
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-href="/#/offers">
-                            <md-icon class="material-icons step">card_giftcard</md-icon>
-                            Offers
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-sidenav>
+{% block body %}
+{{ parent() }}
+<body ng-app="rscine">
 
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <md-button ng-click="toggleLeft()" aria-label="Menu" class="md-icon-button">
-                        <md-icon aria-label="Menu" class="material-icons step">
-                            menu
-                        </md-icon>
-                    </md-button>
-                    <h2>
-                        <span>Rscine</span>
-                    </h2>
-                    <span flex></span>
+<div ng-controller="MainCtrl" ng-cloak>
 
-                    <!-- Notifications -->
-                    <md-button aria-label="Open phone interactions menu" class="md-icon-button" aria-label="Profile">
-                        <md-icon md-menu-origin aria-label="User" class="material-icons step">
-                            notifications
-                        </md-icon>
-                    </md-button>
+    {% include 'AppBundle::nav.html.twig' %}
 
-                    <!-- Profil -->
-                    <md-menu md-position-mode="target-right target">
-                        <md-button aria-label="Open user profile menu" ng-click="openMenu($mdOpenMenu, $event)" class="md-icon-button" aria-label="Profile">
-                            <md-icon md-menu-origin aria-label="User" class="material-icons step">
-                                person
-                            </md-icon>
-                        </md-button>
+    <md-content flex layout-padding>
+        <div ng-view=""></div>
+    </md-content>
 
-                        <md-menu-content width="3">
-                            <md-menu-item>
-                                <md-button ng-href="/#/profile">
-                                    <md-icon class="material-icons step" md-menu-align-target>person</md-icon>
-                                    Profile
-                                </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                                <md-button ng-click="logout()">
-                                    <md-icon class="material-icons step">power_settings_new</md-icon>
-                                    Log out
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
+</div>
+{% endblock %}
 
-                </div>
-            </md-toolbar>
-        </div>
-        <md-content flex layout-padding>
-            <div ng-view=""></div>
-        </md-content>
+{% block javascripts %}
+{{ parent() }}
 
-    </div>
+{% javascripts
+    'bower_components/angular/angular.js'
+    'bower_components/angular-animate/angular-animate.js'
+    'bower_components/angular-aria/angular-aria.js'
+    'bower_components/angular-cookies/angular-cookies.js'
+    'bower_components/angular-messages/angular-messages.js'
+    'bower_components/angular-resource/angular-resource.js'
+    'bower_components/angular-route/angular-route.js'
+    'bower_components/angular-sanitize/angular-sanitize.js'
+    'bower_components/angular-touch/angular-touch.js'
+    'bower_components/angular-material/angular-material.js'
+    'bower_components/lodash/lodash.js'
+    'bower_components/restangular/dist/restangular.js'
+     %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
-    {% block javascripts %}
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+{% javascripts '@AppBundle/Resources/public/js/*' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    {% javascripts
-        'bower_components/angular/angular.js'
-        'bower_components/angular-animate/angular-animate.js'
-        'bower_components/angular-aria/angular-aria.js'
-        'bower_components/angular-cookies/angular-cookies.js'
-        'bower_components/angular-messages/angular-messages.js'
-        'bower_components/angular-resource/angular-resource.js'
-        'bower_components/angular-route/angular-route.js'
-        'bower_components/angular-sanitize/angular-sanitize.js'
-        'bower_components/angular-touch/angular-touch.js'
-        'bower_components/angular-material/angular-material.js'
-        'bower_components/lodash/lodash.js'
-        'bower_components/restangular/dist/restangular.js'
-         %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
-    {% javascripts '@AppBundle/Resources/public/js/*' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
-    {% javascripts '@AppBundle/Resources/public/js/**/*' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% endblock %}
-</body>
-</html>
+{% javascripts '@AppBundle/Resources/public/js/**/*' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
