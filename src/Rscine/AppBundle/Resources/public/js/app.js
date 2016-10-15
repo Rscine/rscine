@@ -32,16 +32,6 @@ angular
         templateUrl: 'bundles/app/views/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile',
-        resolve: {
-          auth: function (basicAuthentication) {
-            return basicAuthentication.isLoggedIn();
-          }
-        }
-      })
-      .when('/login', {
-        templateUrl: 'bundles/app/views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
       })
       .when('/', {
         templateUrl: 'bundles/app/views/home.html',

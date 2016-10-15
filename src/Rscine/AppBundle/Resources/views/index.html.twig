@@ -1,5 +1,4 @@
-{% extends 'AppBundle::base.html.twig' %}
-
+{% extends 'RscineAppBundle::base.html.twig' %}
 
 {% block title %}Rscine{% endblock %}
 
@@ -8,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-{% stylesheets '@AppBundle/Resources/public/scss/*' filter='cssrewrite' %}
+{% stylesheets '@RscineAppBundle/Resources/public/scss/*' filter='cssrewrite' %}
 <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
 
@@ -16,12 +15,9 @@
 {% endblock %}
 
 {% block body %}
-{{ parent() }}
-<body ng-app="rscine">
-
 <div ng-controller="MainCtrl" ng-cloak>
 
-    {% include 'AppBundle::nav.html.twig' %}
+    {% include 'RscineAppBundle::nav.html.twig' %}
 
     <md-content flex layout-padding>
         <div ng-view=""></div>
@@ -50,11 +46,11 @@
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
-{% javascripts '@AppBundle/Resources/public/js/*' %}
+{% javascripts '@RscineAppBundle/Resources/public/js/*' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
-{% javascripts '@AppBundle/Resources/public/js/**/*' %}
+{% javascripts '@RscineAppBundle/Resources/public/js/**/*' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 {% endblock %}

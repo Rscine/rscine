@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace Rscine\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,6 +13,6 @@ class MainController extends Controller
      */
     public function mainAction(Request $request)
     {
-        return $this->render('AppBundle::index.html.twig', []);
+        return $this->render('RscineAppBundle::index.html.twig', []);
     }
 }

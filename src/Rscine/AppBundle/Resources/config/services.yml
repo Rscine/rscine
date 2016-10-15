@@ -1,0 +1,3 @@
+services:
+    rscine_app.security.user_provider.rscine_api:
+        class: Rscine\AppBundle\Security\RscineApiUserProvider
