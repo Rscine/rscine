@@ -1,0 +1,69 @@
+<div layout="row">
+    <md-card flex="25">
+        <img class="md-user-avatar" src="bundles/app/images/avatar_default.jpg"/>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ user.username }}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <p>
+                <md-icon class="material-icons step" md-menu-align-target>account_balance</md-icon>
+                {{ user.company.name }}
+            </p>
+            <div ng-repeat="address in user._embedded.contactInformation._embedded.addresses">
+                <p>
+                    <md-icon class="material-icons step" md-menu-align-target>place</md-icon>
+                    {{ address.number }} {{ address.street }}, {{ address.postal_code }}
+                    {{ address._embedded.district.name }}
+                </p>
+            </div>
+            <div ng-repeat="email in user._embedded.contactInformation._embedded.emails">
+                <p>
+                    <md-icon class="material-icons step" md-menu-align-target>mail</md-icon>
+                    {{ email.email }}
+                </p>
+            </div>
+            <div ng-repeat="phone in user._embedded.contactInformation._embedded.phones">
+                <p>
+                    <md-icon class="material-icons step" md-menu-align-target>smartphone</md-icon>
+                    {{ phone.number }}
+                </p>
+            </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button>
+                edit profile
+            </md-button>
+        </md-card-actions>
+    </md-card>
+
+      <md-list flex="75">
+        <md-subheader class="md-no-sticky">Events</md-subheader>
+        <md-list-item class="md-3-line">
+          <img ng-src="bundles/app/images/avatar_default.jpg" class="md-avatar" alt="{{ user.username }}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ user.username }} joined the app</h3>
+            <p>Send him a welcome message !</p>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-3-line">
+          <img ng-src="bundles/app/images/avatar_default.jpg" class="md-avatar" alt="{{ user.username }}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ user.username }}</h3>
+            <h4>Lorem ipsum</h4>
+            <p>Lorem !</p>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader class="md-no-sticky">Actions</md-subheader>
+        <md-list-item class="md-3-line">
+          <img ng-src="bundles/app/images/avatar_default.jpg" class="md-avatar" alt="{{ user.username }}" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ user.username }}</h3>
+            <h4>Lorem ipsum</h4>
+            <p>Lorem !</p>
+          </div>
+        </md-list-item>
+</div>
+

@@ -1,0 +1,12 @@
+<md-list>
+    <md-subheader class="md-sticky">Available offers</md-subheader>
+    <md-list-item ng-repeat="offer in offers" class="md-3-line">
+        <img class="md-avatar" src="bundles/app/images/avatar_default.jpg"/>
+
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ offer.name }}</h3>
+            <h4>{{ offer.description }}</h4>
+            <p>by {{ offer.creator.username }}</p>
+        </div>
+    </md-list-item>
+</md-list>
