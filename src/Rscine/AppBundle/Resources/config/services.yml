@@ -1,3 +1,15 @@
 services:
     rscine_app.security.user_provider.rscine_api:
         class: Rscine\AppBundle\Security\RscineApiUserProvider
+
+    rscine_app.security.authentication.provider.rscine_api:
+        class: Rscine\AppBundle\Security\Authentication\Provider\RscineApiProvider
+        arguments:
+            - '' # User Provider
+            - '@cache.app'
+        public: false
+
+    rscine_app.security.authentication.listener.rscine_api:
+        class: Rscine\AppBundle\Security\Firewall\RscineApiListener
+        arguments: ['@security.token_storage', '@security.authentication.manager']
+        public: false

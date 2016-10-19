@@ -1,7 +1,7 @@
 {% extends 'RscineAppBundle::index.html.twig' %}
 
 {% block body %}
-<div ng-controller="LoginCtrl">
+{# <div ng-controller="LoginCtrl">
     <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
         <form ng-submit="authenticate()">
             <md-input-container>
@@ -17,5 +17,32 @@
             <md-button class="md-raised md-primary" type="submit">Log in</md-button>
         </form>
 </md-content>
-</div>
+</div> #}
+
+
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path('login_check') }}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="_password" />
+
+    {#
+        If you want to control the URL the user
+        is redirected to on success (more details below)
+        <input type="hidden" name="_target_path" value="/account" />
+    #}
+
+    <button type="submit">login</button>
+</form>
+
+
+
+
+
 {% endblock %}
