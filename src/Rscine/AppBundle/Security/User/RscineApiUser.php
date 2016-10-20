@@ -46,7 +46,7 @@ class RscineApiUser implements UserInterface, EquatableInterface
 
     public function isEqualTo(UserInterface $user)
     {
-        if (!$user instanceof WebserviceUser) {
+        if (!$user instanceof RscineApiUser) {
             return false;
         }
 

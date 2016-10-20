@@ -1,30 +1,27 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
 security:
 
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    encoders:
+        Rscine\AppBundle\Security\User\RscineApiUser: plaintext
+
     providers:
         in_memory:
             memory: ~
+        rscine:
+            id: rscine_app.security.user_provider.rscine_api
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern: ^/(login|register)$
-            anonymous: ~
-
         main:
             pattern: ^/
-            anonymous: false
-            rscine_api: true
+            anonymous: true
             form_login:
+                provider: rscine
                 login_path: login
                 check_path: login_check
 
     access_control:
-        - { path: ^/(login|register), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(login|register)$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

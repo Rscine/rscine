@@ -1,6 +1,6 @@
 <?php
 
-namespace Rscine\Security\User;
+namespace Rscine\AppBundle\Security\User;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -19,6 +19,7 @@ class RscineApiUserProvider implements UserProviderInterface
         // make a call to your webservice here
         // $userData = ...
         // pretend it returns an array on success, false if there is no user
+        $userData = true;
 
         if ($userData) {
             $password = 'cormag';
@@ -47,6 +48,6 @@ class RscineApiUserProvider implements UserProviderInterface
 
     public function supportsClass($class)
     {
-        return $class === 'AppBundle\Security\User\WebserviceUser';
+        return $class === 'Rscine\AppBundle\Security\User\RscineApiUser';
     }
 }

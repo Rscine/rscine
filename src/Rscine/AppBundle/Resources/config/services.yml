@@ -1,11 +1,11 @@
 services:
     rscine_app.security.user_provider.rscine_api:
-        class: Rscine\AppBundle\Security\RscineApiUserProvider
+        class: Rscine\AppBundle\Security\User\RscineApiUserProvider
 
     rscine_app.security.authentication.provider.rscine_api:
         class: Rscine\AppBundle\Security\Authentication\Provider\RscineApiProvider
         arguments:
-            - '' # User Provider
+            - '@rscine_app.security.user_provider.rscine_api'
             - '@cache.app'
         public: false
 
