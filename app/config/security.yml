@@ -21,6 +21,9 @@ security:
                 provider: rscine
                 login_path: login
                 check_path: login_check
+            logout:
+                path:   /logout
+                target: /
 
     access_control:
         - { path: ^/(login|register)$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
