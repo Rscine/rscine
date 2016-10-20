@@ -26,7 +26,7 @@ angular.module('rscine')
                     hideDelay   : 3000,
                     position    : 'top right',
                     controller  : 'LoginCtrl',
-                    templateUrl : 'bundles/app/views/login/error.html'
+                    templateUrl : 'bundles/rscineapp/views/login/error.html'
                 });
             });
 
@@ -37,7 +37,7 @@ angular.module('rscine')
             //         hideDelay   : 3000,
             //         position    : 'top right',
             //         controller  : 'LoginCtrl',
-            //         templateUrl : 'bundles/app/views/login/error.html'
+            //         templateUrl : 'bundles/rscineapp/views/login/error.html'
             //     });
             // });
         }

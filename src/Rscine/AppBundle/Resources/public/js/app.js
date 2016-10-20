@@ -24,22 +24,22 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/about', {
-        templateUrl: 'bundles/app/views/about.html',
+        templateUrl: 'bundles/rscineapp/views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
       .when('/profile', {
-        templateUrl: 'bundles/app/views/profile.html',
+        templateUrl: 'bundles/rscineapp/views/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile',
       })
       .when('/', {
-        templateUrl: 'bundles/app/views/home.html',
+        templateUrl: 'bundles/rscineapp/views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
       .when('/offers', {
-        templateUrl: 'bundles/app/views/offers.html',
+        templateUrl: 'bundles/rscineapp/views/offers.html',
         controller: 'OffersCtrl',
         controllerAs: 'offers',
         resolve: {
