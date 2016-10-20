@@ -25,7 +25,7 @@ class RscineApiUserProvider implements UserProviderInterface
             $password = 'cormag';
             $username = 'cormag';
             $salt = '';
-            $roles = [];
+            $roles = ['ROLE_USER'];
 
             return new RscineApiUser($username, $password, $salt, $roles);
         }
